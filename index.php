@@ -1,3 +1,3 @@
 <?php
-	echo "Teste 234234234";
+	phpinfo();
 ?>
