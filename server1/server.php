@@ -1,6 +1,5 @@
 <?php
 	//server
-
 	//inclusao do arquivo NUSOAP
 	require_once('lib/nusoap.php');
 	
@@ -15,8 +14,6 @@
 		
 		$result = "Hello, " . $name;
 		return $result;
-		
-		var_dump($result);
 	}
 	
 	
@@ -25,6 +22,5 @@
 	$HTTP_RAW_POST_DATA : '';
 	
 	$server->service($HTTP_RAW_POST_DATA);
-	var_dump($server);
 	
 ?>
