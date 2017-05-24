@@ -1,19 +1,29 @@
 <?php
-
-$client = new SoapClient(null, array(
-		'location' 	=> 'http://127.0.0.1:8080/edsa-webserverPHP/server2/server.php',
-		'uri' 		=> 'http://127.0.0.1:8080/edsa-webserverPHP/server2',
-		'trace' 	=> 1
-     ));
-	 
-$result = $client->hello('Mauricio salfhsdkjfsdkj');
-
-if(is_soap_fault($result)){
-	trigger_error("SOAP Fault: (faultcode: 
-	{$result->faultcode},faultstring: {$result->faultstring})", E_ERROR);
-}else{
-	echo "Resultado Encontrado: <br><br>";
-	print_r($result);
-}
-
+	//cliente
+	
+	//inclusao do arquivo NUSOAP
+	require_once('lib/nusoap.php');
+	
+	//criacao de uma instancia do cliente
+	$client = new nusoap_client('http://127.0.0.1/webservicephp/server2.php');
+			
+	//chamada do metodo SOAP
+	$result = $client->call('listaProdutos');
+	
+	
 ?>
+
+<select>
+  <?php
+	
+		//exibe o resultado
+		$top = sizeof($result) - 1;
+        $bottom = 0;
+        while($bottom <= $top)
+        {
+			echo '<option value='.$result[$bottom].'>'.$result[$bottom].'</option>';
+			$bottom++;
+		}
+  ?>
+  
+</select>

@@ -1,22 +1,26 @@
 <?php
+	//server
+	//inclusao do arquivo NUSOAP
+	require_once('lib/nusoap.php');
 	
-$server = new SoapServer(null, array('uri' => "http://127.0.0.1:8080/edsa-webserverPHP/server2"));
-
-	function hello($name){
-		return 'Helo '.$name;
-	}
-
-	$server->addFunction("hello");
+	//criacao de uma instanca do servidor
+	$server = new soap_server;
+	
+	//registro do método
+	$server->register('listaProdutos');
 	
 	
-	if($_SERVER["REQUEST_METHOD"]=="POST"){
-		$server->handle();
+	function listaProdutos(){
+		
+		$produtos = array("volvo","saab","mercedes","audi","fiat","bmw");		
+		return $produtos;
 	}
-	else{
-		 $functions = $server->getFunctions();
-		 foreach($functions as $func){
-			 print $func. "<br>";
-		 }
-	}
+	
+	
+	//requisição para uso do serviço
+	$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ?
+	$HTTP_RAW_POST_DATA : '';
+	
+	$server->service($HTTP_RAW_POST_DATA);
 	
 ?>
