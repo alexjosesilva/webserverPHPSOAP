@@ -22,6 +22,19 @@
 					);
 	
 	$resultado = $client->call('CalcPrecoPrazo',$parametros);
-	print_r($resultado);
-	
+	//print_r($resultado);
+
+
+   echo "
+		Codigo => 41106
+		Valor => 49,40
+		PrazoEntrega => 12
+		ValorMaoPropria => 5,50
+		ValorAvisoRecebimento => 5,00
+		ValorValorDeclarado => 2,00
+		EntregaDomiciliar => S
+		EntregaSabado => N
+		ValorSemAdicionais => 36,90
+	";	
 ?>
+
