@@ -5,11 +5,11 @@
 	require_once('nusoap.php');
 	
 	//criacao de uma instancia do cliente
-	$client = new nusoap_client('http://127.0.0.1:8080/edsa-webserverPHP/server.php');
+	$client = new nusoap_client('http://127.0.0.1/webservicephp/server1.php');
 			
 	//chamada do metodo SOAP
-	$result = $client->call('hello',array('name' => 'Pingu'));
-	var_dump($result);
+	$result = $client->call('hello',array('name' => 'brasil'));
+	
 		
 	//exibe o resultado
 	print_r($result);
