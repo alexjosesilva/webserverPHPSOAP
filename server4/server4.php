@@ -2,6 +2,9 @@
 	//server
 	//inclusao do arquivo NUSOAP
 	require_once('lib/nusoap.php');
+	require_once('conectar.php');
+	
+	
 	
 	//criacao de uma instanca do servidor
 	$server = new soap_server;
@@ -10,9 +13,24 @@
 	$server->register('listaProdutos');
 	
 	
+	
 	function listaProdutos(){
 		
-		$produtos = array("volvo","saab","mercedes","audi","fiat","bmw");		
+		$con = conectar();
+		$sql = "select * from curso";
+		$cursos = mysql_query($sql,$con);
+		$produtos = array();
+		
+		$linha = mysql_fetch_assoc($cursos);
+		$total = mysql_num_rows($cursos);
+		$i =0;
+		if($total > 0) {
+			do {
+				//echo "<br>".$linha['codigo']." ".$linha['nome']."<br>";
+				 $produtos[$i] = $linha;
+				 $i++;
+			}while($linha = mysql_fetch_assoc($cursos));
+		}
 		return $produtos;
 	}
 	
