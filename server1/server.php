@@ -2,7 +2,7 @@
 	//server
 
 	//inclusao do arquivo NUSOAP
-	require_once('lib/nusoap.php');
+	require_once('nusoap.php');
 	
 	//criacao de uma instanca do servidor
 	$server = new soap_server;
