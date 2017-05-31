@@ -5,20 +5,20 @@
 	require_once('lib/nusoap.php');
 	
 	//criacao de uma instancia do cliente
-	$client = new nusoap_client('http://localhost/www/server2/server2.php');
-			
+	$client = new nusoap_client('http://webservicesoap.azurewebsites.net/app4/server4.php');
+	
 	//chamada do metodo SOAP
 	$result = $client->call('listaProdutos');
-	
-	//var_dump($result);
+    echo " <p> Lsita de produtos <p>";
 	
 ?>
 
-<select>
-  <?php
+<select name="produtos">
+  <?php	
+			
+		echo "<option value=''>Selecione</option>";	
 		
-		
-		//exibe o resultado
+		//preencher o conteudo do select com dados vindo do banco mysql
 		$top = sizeof($result) - 1;
         $bottom = 0;
         while($bottom <= $top)
