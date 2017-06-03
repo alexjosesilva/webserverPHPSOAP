@@ -1,7 +1,7 @@
 <?php
 
 // Includs client to get $client object
-include 'lib/client.php';
+include 'cliente.php';
 
 $id = $_GET['id']; // id from url
 
@@ -10,7 +10,7 @@ $id = $_GET['id']; // id from url
 * $client: object of SOAP CLIENT
 * @params: $id
 */
-if( $client->__soapCall("delete", array($id)) ){
+if( $client->call("excluirAluno", array($id)) ){
 	$message = "Record is deleted successfully.";
 }else {
 	$message = "Sorry, Record is not deleted.";
@@ -18,4 +18,4 @@ if( $client->__soapCall("delete", array($id)) ){
 
 echo $message;
 ?>
-<a href="read.php">Back to List</a>
+<a href="listar.php">Back to List</a>

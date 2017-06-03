@@ -6,17 +6,18 @@ $message = ""; // initial message
 if( isset($_POST['submit_data']) ){
 
 	// Gets the data from post
-	$name = $_POST['name'];
-	$email = $_POST['email'];
+	$name 	 = $_POST['name'];
+	$email 	 = $_POST['email'];
 	$address = $_POST['address'];
 
 	//chamada do metodo SOAP
-	$result = $client->call('inserirAluno',array($name, $email, $address));
+	$result = $client->call('inserirAluno',array($name,$email,$address));
 	
 	
 	if( $result ){
 		$message = "Data is inserted successfully.";
 	}else{
+		var_dump($result);
 		$message = "Sorry, Data is not inserted.";
 	}
 }

@@ -3,6 +3,5 @@
 	require_once('../lib/nusoap.php');
 	
 	//criacao de uma instancia do cliente
-	$client = new nusoap_client('http://127.0.0.1/edsa-webserverPHPSOAP/server5/server.php');
-	
+	$client = new nusoap_client('http://webservicesoap.azurewebsites.net/app5/server5.php');
 ?>

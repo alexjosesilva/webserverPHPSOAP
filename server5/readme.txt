@@ -1,5 +1,4 @@
-CRUD WEBSERVICE TIPO SOAP para php
-CRIAR
-LISTAR
-EDITAR
-DELETAR
+WebService que alimenta um SELECT no client 
+
+apartir de uma base de dados externa obtida 
+no servidor

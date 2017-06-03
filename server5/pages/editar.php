@@ -2,7 +2,7 @@
 $message = ""; // initial message 
 
 // Includs client to get $client object
-include 'lib/client.php';
+include 'cliente.php';
 
 // Updating the table row with submited data according to id once form is submited 
 if( isset($_POST['submit_data']) ){
@@ -18,7 +18,7 @@ if( isset($_POST['submit_data']) ){
 	* $client: object of SOAP CLIENT
 	* @params: $id, $name, $email, $address
 	*/
-	if( $client->__soapCall("update", array($id, $name, $email, $address))  ){
+	if( $client->call("editarAluno", array($id, $name, $email, $address))  ){
 		$message = "Data is updated successfully.";
 	}else{
 		$message = "Sorry, Data is not updated.";
@@ -32,7 +32,7 @@ $id = $_GET['id']; // id from url
 * $client: object of SOAP CLIENT
 * @params: $id
 */
-$data = $client->__soapCall("getById", array($id));
+$data = $client->call("getById", array($id));
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ $data = $client->__soapCall("getById", array($id));
 				<td><textarea name="address"><?php echo $data['address'];?></textarea> </td>
 			</tr>
 			<tr>
-				<td><a href="read.php">Back</a></td>
+				<td><a href="listar.php">Back</a></td>
 				<td><input name="submit_data" type="submit" value="Update Data"></td>
 			</tr>
 			</form>

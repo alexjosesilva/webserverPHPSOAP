@@ -4,7 +4,6 @@
 	
 	//chamada do metodo SOAP
 	$result = $client->call('listaAlunos');
-	
 	//var_dump($result);
 	
 ?>
@@ -30,12 +29,13 @@
 				<td><?php echo $row['email'];?></td>
 				<td><?php echo $row['address'];?></td>
 				<td>
-					<a href="update.php?id=<?php echo $row['id'];?>">Edit</a> | 
-					<a href="delete.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure?');">Delete</a>
+					<a href="editar.php?id=<?php echo $row['id'];?>">Edit</a> | 
+					<a href="deletar.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure?');">Delete</a>
 				</td>
 			</tr>
 			<?php } ?>
 		</table>
+		<a href="http://webservicesoap.azurewebsites.net/app5">Back</a>
 	</div>
 </body>
 </html>
