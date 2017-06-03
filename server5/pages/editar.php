@@ -18,7 +18,7 @@ if( isset($_POST['submit_data']) ){
 	* $client: object of SOAP CLIENT
 	* @params: $id, $name, $email, $address
 	*/
-	if( $client->call("editarAluno", array($id, $name, $email, $address))  ){
+	if( $client->call("editarAluno", array('id'=>$id,'name'=>$name,'email'=>$email,'address'=>$address))  ){
 		$message = "Data is updated successfully.";
 	}else{
 		$message = "Sorry, Data is not updated.";
@@ -32,7 +32,7 @@ $id = $_GET['id']; // id from url
 * $client: object of SOAP CLIENT
 * @params: $id
 */
-$data = $client->call("getById", array($id));
+$data = $client->call("getById", array('id'=>$id));
 ?>
 
 <!DOCTYPE html>

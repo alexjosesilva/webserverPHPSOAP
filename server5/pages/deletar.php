@@ -4,13 +4,10 @@
 include 'cliente.php';
 
 $id = $_GET['id']; // id from url
+$result = $client->call('excluirAluno',array('id' =>$id));
 
-/**
-* Calling the "delete" method by "__soapCall" from SOAP SERVER 
-* $client: object of SOAP CLIENT
-* @params: $id
-*/
-if( $client->call("excluirAluno", array($id)) ){
+
+if( $result ){
 	$message = "Record is deleted successfully.";
 }else {
 	$message = "Sorry, Record is not deleted.";

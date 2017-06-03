@@ -1,4 +1,7 @@
-WebService que alimenta um SELECT no client 
+CRUD WEBSERVICE TIPO SOAP EM PHP -
 
-apartir de uma base de dados externa obtida 
-no servidor
+O webservice com quatro operações: 
+criação, listagem, edita e exclui 
+usuários de uma lista.
+
+O WebService e os dados são armazenados no banco MySql no Azure.

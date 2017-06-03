@@ -30,7 +30,7 @@
 				<td><?php echo $row['address'];?></td>
 				<td>
 					<a href="editar.php?id=<?php echo $row['id'];?>">Edit</a> | 
-					<a href="deletar.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure?');">Delete</a>
+					<a href="deletar.php?id=<?php echo $row['id'];?>" onclick="return confirm('Confirmar Exclusao ?');">Delete</a>
 				</td>
 			</tr>
 			<?php } ?>
