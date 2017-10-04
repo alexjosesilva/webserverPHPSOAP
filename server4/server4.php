@@ -13,26 +13,11 @@
 	//funcao lista produtos
 	function listaProdutos(){
 		
-		$con = conectar();
-	
-	    $sql = "select * from produtos";
-		$result = mysqli_query($con,$sql);
-				
-		$produtos = array();
-		
-		$linha = mysqli_fetch_assoc($result);
-		$total = mysqli_num_rows($result);
-				
-		$i =0;
-		if($total > 0) {
-			do {
-				// echo "<br> Codigo:".$linha['codigo']." Produto: ".$linha['nome'];
-				 $produtos[$i] = $linha;
-				 $i++;
-			}while($linha = mysqli_fetch_assoc($result));
-		}
+		$result = $this->mysqli->query("SELECT * FROM student");
+		$this->mysqli->close();
+		return $result->fetch_all(MYSQLI_ASSOC);
 
-		return $produtos;
+		
 	}
 		
 	//requisição para uso do serviço
